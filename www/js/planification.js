@@ -37,8 +37,9 @@ var eguneratu = function (mydate) {
           $('#mytable').append(
               '<li>'
                   +'<h3>Ref: ' + data.IDArticulo + ' // OF: ' + data.NOrden + '</h3>'
-                  +'<p> Fabricada : ' + QFabricada.toString() + '</p>'
                   +'<p> A Fabricar: ' + QFabricar.toString() + '</p>'
+                  +'<p> Fabricada : ' + QFabricada.toString() + '</p>'
+                  +'<p> Iniciada : ' + QIniciada.toString() + '</p>'
              +'</li>'
           );
         }
