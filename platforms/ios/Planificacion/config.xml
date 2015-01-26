@@ -24,6 +24,9 @@
         <param name="onload" value="true" />
     </feature>
     <preference name="StatusBarStyle" value="lightcontent" />
+    <splash height="480" src="res/Default~iphone.png" width="320" />
+    <splash height="960" src="res/Default@2x~iphone.png" width="640" />
+    <splash height="1136" src="res/Default-568h@2x~iphone.png" width="640" />
     <name>Planificacion</name>
     <description>
         Planifikazioa ikusteko App bat.
@@ -34,4 +37,5 @@
     <content src="index.html" />
     <access origin="*" />
     <preference name="StatusBarOverlaysWebView" value="true" />
+    <icon src="res/icon.png" />
 </widget>
