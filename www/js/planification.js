@@ -42,12 +42,33 @@ var eguneratu = function (mydate) {
                   +'<p> Iniciada : ' + QIniciada.toString() + '</p>'
              +'</li>'
           );
+        }, error:function (xhr, ajaxOptions, thrownError){
+            console.log("error");
+            console.log(thrownError);
+            $.mobile.loading("hide");
         }
       });
+
+      $.mobile.loading("hide");
+
     }
+  }).fail(function(xhr, ajaxOptions, thrownError){
+      $('#mytable').empty();
+      $('#mytable').append('<li><h3>No hay datos</h3></li>');
+      $.mobile.loading("hide");
   });
 
 }
+
+$(document).on("mobileinit", function() {
+   $.mobile.loader.prototype.options.text = "Itxaron apur bat...";
+   $.mobile.loader.prototype.options.textVisible = true;
+   $.mobile.loader.prototype.options.theme = "e";
+});
+
+$(document).on("pageshow", function() {
+   $.mobile.loading("show");
+});
 
 document.addEventListener('deviceready', function () {
 
@@ -68,6 +89,7 @@ document.addEventListener('deviceready', function () {
     e.preventDefault();
     var gaur = $('#gaur').text();
     var momentgaur = moment(gaur, "YYYY-MM-DD").subtract(1, 'days').format('YYYY-MM-DD');
+    $.mobile.loading("show");
 
     eguneratu(momentgaur);
     $('#gaur').text(momentgaur);
@@ -79,9 +101,11 @@ document.addEventListener('deviceready', function () {
     var gaur = $('#gaur').text();
     var momentgaur = moment(gaur, "YYYY-MM-DD").add(1, 'days').format('YYYY-MM-DD');
 
+    $.mobile.loading("show");
     eguneratu(momentgaur);
     $('#gaur').text(momentgaur);
   });
+
 
 
 }, false);
